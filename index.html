@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		.btn{
+			height: 200px; width: 200px ;border: 5px solid red;
+			cursor: pointer;
+		}
+		.btn:hover{
+			border: 5px solid green;
+		}
+	</style>
+</head>
+<body>
+	<div style="text-align: center;">
+		<img src="rock.jpg" class="btn"  id="rock" onclick="play('rock')">
+		<img src="paper.jpg" class="btn"  id="paper" onclick="play('paper')">
+		<img src="sz.jpg" class="btn"  id="sz" onclick="play('sz')">
+	</div>
+	<div style="text-align: center;display:none;" id="sho">
+		<div>
+			<h2 >Computer Choice</h2>
+		</div>
+		<img src=""  class="btn" id="choosen" >
+	</div>
+	<dir style="text-align: center;">
+		<h1 id="dec"></h1>
+	</dir>
+	
+<script type="text/javascript">
+
+	function play(usr_choice)
+	{
+		var guess=["","rock","paper","sz"][Math.floor(Math.random() * 3) + 1]
+		table={"rock":{"paper":"0","rock":"1","sz":"2"},"paper":{"paper":"1","rock":"2","sz":"0"},"sz":{"paper":"2","rock":"1","sz":"1"}}
+		declare(["Loose","Tie","Win"][table[usr_choice][guess]],guess)
+	}
+
+	function declare(win,pref)
+	{
+		document.getElementById("choosen").src=pref+".jpg";
+		document.getElementById("sho").style.display="block";
+		document.getElementById("dec").innerHTML=win;
+	}
+</script>
+</body>
+</html>
