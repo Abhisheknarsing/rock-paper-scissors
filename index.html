@@ -34,7 +34,7 @@
 	function play(usr_choice)
 	{
 		var guess=["","rock","paper","sz"][Math.floor(Math.random() * 3) + 1]
-		table={"rock":{"paper":"0","rock":"1","sz":"2"},"paper":{"paper":"1","rock":"2","sz":"0"},"sz":{"paper":"2","rock":"1","sz":"1"}}
+		table={"rock":{"paper":"0","rock":"1","sz":"2"},"paper":{"paper":"1","rock":"2","sz":"0"},"sz":{"paper":"2","rock":"0","sz":"1"}}
 		declare(["Loose","Tie","Win"][table[usr_choice][guess]],guess)
 	}
 
